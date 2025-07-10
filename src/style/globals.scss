@@ -1,26 +1,40 @@
 @import "tailwindcss";
+$text-color: #664f96;
+$background-color: #ebe8f2;
 $main-color: #6b2eed;
 $button-bg: #f2f0f5;
+$message-bg: #bfadeb;
+@mixin button(
+  $bg: $button-bg,
+  $color: black,
+  $hover-bg: darken($main-color, 10%),
+  $hover-color: white,
+  $padding: 0.5rem 1rem,
+  $radius: 20px
+) {
+  background-color: $bg;
+  color: $color;
+  font-weight: bold;
+  text-decoration: none;
+  padding: $padding;
+  border-radius: $radius;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background-color: $hover-bg;
+    color: $hover-color;
+    transform: scale(1.05);
+  }
+}
 :root {
   --main-color: #6b2eed;
   --button-bg: #f2f0f5;
+  --message-bg: #bfadeb;
+  --message-bg-hover: #9e82e7;
 }
 // Header styles
 .links {
   a.button {
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    margin: 0 0;
-    background-color: $button-bg;
-    color: black;
-    font-weight: bold;
-    text-decoration: none;
-    transition: all 0.3s ease-in-out;
-    &:hover {
-      background-color: darken($main-color, 10%);
-      color: white;
-      transform: scale(1.05);
-    }
+    @include button;
   }
   a {
     font-weight: bold;

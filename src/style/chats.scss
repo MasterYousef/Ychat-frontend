@@ -1,0 +1,23 @@
+@import "./globals.scss";
+@mixin scrollbar {
+  &::-webkit-scrollbar {
+    width: 5px;
+    &#{"-thumb"} {
+      background-color: lighten($main-color, 20%);
+      border-radius: 8px;
+      &:hover {
+        background-color: lighten($main-color, 5%);
+      }
+    }
+    &#{"-button"} {
+      display: none;
+    }
+  }
+}
+.messages-container {
+  @include scrollbar();
+}
+
+.chat-list {
+  @include scrollbar();
+}

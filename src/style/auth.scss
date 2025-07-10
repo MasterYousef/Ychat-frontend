@@ -1,0 +1,28 @@
+@import "./globals.scss";
+input {
+  width: 80%;
+  margin-bottom: 20px;
+  height: 50px;
+  border-radius: 10px !important;
+  background-color: $background-color;
+  color: $text-color;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 0 10px;
+  font-size: 1.2rem;
+  box-sizing: border-box;
+  &:focus-within {
+    outline-color: $main-color;
+  }
+}
+.form-button {
+  @include button(
+    $bg: $main-color,
+    $color: white,
+    $hover-bg: darken($main-color, 10%)
+  );
+  width: 80%;
+  height: 50px;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
