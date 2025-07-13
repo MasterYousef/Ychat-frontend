@@ -2,7 +2,11 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import Link from "next/link";
 import { motion } from "motion/react";
-export default function DropDownMenu() {
+export default function DropDownMenu({
+  isAuthenticated,
+}: {
+  isAuthenticated: boolean;
+}) {
   return (
     <div className="flex md:hidden">
       <Menu>
@@ -27,12 +31,28 @@ export default function DropDownMenu() {
           <MenuItem>
             <Link href="/contact">Contact</Link>
           </MenuItem>
-          <MenuItem>
-            <Link href="/login">Login</Link>
-          </MenuItem>
-          <MenuItem>
-            <Link href="/register">Sign Up</Link>
-          </MenuItem>
+          {isAuthenticated ? (
+            <>
+              <MenuItem>
+                <Link href="/chats">Chats</Link>
+              </MenuItem>
+              <MenuItem>
+                <Link href="/profile">Profile</Link>
+              </MenuItem>
+              <MenuItem>
+                <button className="logout">Log out</button>
+              </MenuItem>
+            </>
+          ) : (
+            <>
+              <MenuItem>
+                <Link href="/login">Login</Link>
+              </MenuItem>
+              <MenuItem>
+                <Link href="/register">Sign Up</Link>
+              </MenuItem>
+            </>
+          )}
         </MenuItems>
       </Menu>
     </div>

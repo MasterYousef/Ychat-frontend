@@ -1,8 +1,11 @@
 import Link from "next/link";
 import Logo from "../landing/Logo";
 import DropDownMenu from "../landing/DropDownMenu";
+import HeaderHook from "@/hooks/HeaderHook";
+import HeaderProfile from "./HeaderProfile";
 
-export default function Header() {
+export default async function Header() {
+  const hook = await HeaderHook();
   return (
     <header className="border-b relative border-gray-200 z-10 bg-white text-black flex items-center justify-between p-3">
       <div className="px-5 w-1/4 flex items-center gap-2">
@@ -13,14 +16,21 @@ export default function Header() {
         <Link href="/">Home</Link>
         <Link href="/about">About</Link>
         <Link href="/contact">Contact</Link>
-        <Link href="/login" className="button">
-          Login
-        </Link>
-        <Link href="/signUp" className="button">
-          Sign Up
-        </Link>
+
+        {hook.isAuthenticated ? (
+          <HeaderProfile image={hook.user.image} />
+        ) : (
+          <>
+            <Link href="/login" className="button">
+              Login
+            </Link>
+            <Link href="/signUp" className="button">
+              Sign Up
+            </Link>
+          </>
+        )}
       </nav>
-      <DropDownMenu />
+      <DropDownMenu isAuthenticated={hook.isAuthenticated} />
     </header>
   );
 }

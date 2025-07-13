@@ -33,10 +33,12 @@ $message-bg: #bfadeb;
 }
 // Header styles
 .links {
-  a.button {
+  .button {
     @include button;
+    cursor: pointer;
   }
-  a {
+  a,
+  .logout {
     font-weight: bold;
     text-decoration: none;
     color: #4a5568;
