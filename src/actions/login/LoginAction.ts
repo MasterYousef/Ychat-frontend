@@ -29,7 +29,7 @@ export default async function LoginAction(
       };
     }
     try {
-      const res = await baseUrl.post("/auth/login", { email, password });
+      const res = await baseUrl.post("/user/login", { email, password });
       await setCookies(
         { key: "token", value: res.data.data.token },
         {
@@ -60,7 +60,7 @@ export default async function LoginAction(
     return { success: true, message: "Login successful" };
   }
   if (auth === "google") {
-    return { success: true, message: `${process.env.BASE_URL}/auth/google` };
+    return { success: true, message: `${process.env.BASE_URL}/user/google` };
   }
   return { success: false, message: "Invalid authentication method" };
 }

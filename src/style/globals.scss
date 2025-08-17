@@ -25,6 +25,12 @@ $message-bg: #bfadeb;
     transform: scale(1.05);
   }
 }
+.button {
+  @include button();
+  border-radius: 5px;
+  background-color: $message-bg;
+  cursor: pointer;
+}
 :root {
   --main-color: #6b2eed;
   --button-bg: #f2f0f5;

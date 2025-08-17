@@ -15,7 +15,7 @@ function Welcome() {
           . Join us today and start chatting!
         </p>
         <Link href="/login">login</Link>
-        <Link href="/register">Sign Up</Link>
+        <Link href="/signUp">Sign Up</Link>
       </div>
       <Image
         src={"/images/landing.png"}

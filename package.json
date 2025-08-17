@@ -14,12 +14,15 @@
     "@fortawesome/fontawesome-free": "^6.7.2",
     "@headlessui/react": "^2.2.4",
     "@mui/material": "^7.2.0",
+    "@reduxjs/toolkit": "^2.8.2",
     "axios": "^1.10.0",
     "motion": "^12.23.0",
     "next": "15.3.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-redux": "^9.2.0",
     "sass": "^1.89.2",
+    "socket.io-client": "^4.8.1",
     "zod": "^4.0.5"
   },
   "devDependencies": {

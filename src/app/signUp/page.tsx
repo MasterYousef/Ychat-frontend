@@ -6,7 +6,7 @@ function page() {
   return (
     <form
       action={hook.action}
-      className="flex flex-col w-full lg:w-1/2 items-center justify-center "
+      className="auth flex flex-col w-full lg:w-1/2 items-center justify-center "
     >
       <h1 className="text-3xl md:text-4xl lg:text-5xl font-mono mb-10 ">
         Create your account

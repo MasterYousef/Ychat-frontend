@@ -4,12 +4,14 @@ import ChatSend from "./ChatSend";
 import ChatHeader from "./ChatHeader";
 import ChatMessage from "./ChatMessage";
 import ChatContentHook from "@/hooks/chats/ChatContentHook";
+import { user } from "@/types/user";
 
-function ChatContent() {
+function ChatContent({ chatData }: { chatData: user }) {
   const hook = ChatContentHook();
+
   return (
     <div className="chat-content h-screen w-full md:w-3/4  md:flex flex-col bg-white rounded-xl">
-      <ChatHeader />
+      <ChatHeader data={chatData} />
       <div
         ref={hook.ref}
         className="messages-container h-3/4 flex-1 overflow-y-auto px-5 py-4 bg-gray-50"
@@ -45,7 +47,7 @@ function ChatContent() {
           sender={true}
         />
       </div>
-      <ChatSend />
+      <ChatSend id={chatData.id} />
     </div>
   );
 }
